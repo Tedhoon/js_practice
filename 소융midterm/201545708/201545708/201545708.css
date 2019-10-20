@@ -1,0 +1,81 @@
+nav{
+    margin : 10px;
+    padding :10px;
+    border : 1px dashed #f0f0f0;
+    border-radius: 5px;
+    text-align: center;
+    width: 820px;
+
+}
+
+nav>a{
+    text-decoration : none;
+    display : inline-block;
+    width: 100px;
+    height: 30px;
+
+
+}
+
+
+
+nav> a:hover{
+    color:black;
+    background-color: lightgray;
+    display : inline-block;
+    width: 100px;
+    height: 30px;
+
+}
+
+section{
+    width : 400px;
+    height: 200px;
+    padding : 20px;
+    float: left;
+}
+
+section>div{
+    width : 150px;
+    height: 150px;
+    border : dashed 2px #f0f0f0;
+    border-radius: 5px;
+    float: left;
+    margin : 10px;
+    padding-top:10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+body{
+
+    width: 900px;
+}
+
+select{
+    
+    width: 300px;
+    height: 30px;
+}
+
+h1{
+    padding-top:20px;
+    padding-left: 100px;
+    
+}
+
+
+
+#textbox{
+    width : 200px;
+    height: 30px;;
+}
+
+
+#button{
+    width: 100px;
+    height: 30px; 
+    background-color: lightgray;
+    border : none;
+}
+

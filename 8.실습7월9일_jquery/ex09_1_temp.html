@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jquery연습</title>
+		<style>
+			.box1{
+				border-radius: 10px;
+				border: 2px solid #73AD21;
+				background-color : #73AD21;
+				padding: 10px; 
+				margin : 10px;
+				width: 400px;
+				height: 20px; 
+				color : white;
+				text-align : center;
+			}
+			.box2 {
+				width : 120px ;
+				height : 120px;
+				margin : 10px;
+				padding-top: 50px; 
+				text-align : center;
+				border : 2px solid grey;
+				box-sizing : border-box;
+				float : left ;
+			}
+			form {
+				padding: 10px; 
+				margin : 10px;
+				width: 400px;
+				height: 20px; 
+				text-align : center;
+				clear : both ;				
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.4.1.js" 
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  		crossorigin="anonymous"></script>
+		<!-- jquery cdn 가져오기 -->
+		<script>
+
+			$(document).ready(function(){
+			
+				$('#bt1').click(function(){
+				//id 값이 bt1인 것을 클릭하면 함수를 작동시킨다.
+					$('.box2').show();
+					//클릭되면 class값이 box2인것을 보여준다.
+				});
+				$('#bt2').click(function(){
+
+					$('.box2').hide();
+
+				});
+				
+				$('#bt3').click(function(){
+
+					$('.box2').toggle();
+
+				});
+
+
+				$('.box2').click(function(){
+					$(this).hide();
+					//3개중에서 현재 클릭된 것을 숨겨라
+				});
+
+
+				$('.box2').mouseenter(function(){
+					//$(this).css('background-color' , $(this).text());
+
+					$(this).css({"background-color" : $(this).text() , "color":"white"});	
+				});
+				
+				$('.box2').mouseleave(function(){
+					$(this).css({'background-color' : 'white', 'color':'black'});
+
+				});
+			});
+			//$(document).ready()
+			//function(){} 레디 안에 넣기
+			//{}안에 (아이디값).click()
+			//또 click안에 function(){} 
+			
+
+		</script>
+ 
+	</head>
+	<body>
+		<div class="box1">jQuery</div>
+		<div class="box2" id="d1">Red</div>
+		<div class="box2" id="d2">Green</div>
+		<div class="box2" id="d3">Blue</div>
+		<form name="form1">
+			<input type="button" value="모두보기" id="bt1">
+			<input type="button" value="모두숨기기" id="bt2">
+			<input type="button" value="전환하기" id="bt3">
+		</form>
+	</body>
+</html>
+

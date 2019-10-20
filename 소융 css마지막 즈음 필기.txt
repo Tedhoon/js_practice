@@ -1,0 +1,24 @@
+변수=값 & 변수=값
+
+radio
+->묶음으로 선택 -> name같게 해주면 된다
+checkbox )
+checked-> default(초기값)으로 체크 되어서 나온다.
+
+
+
+옵션 묶음으로 선택 -> 셀렉트로 전체 묶어줌
+selected속성
+
+
+label
+모바일 사이즈 / 데스크탑 사이즈
+글자를 선택해도 체크박스 누를 수 있음
+
+
+var str = "";
+str = str + myform.name.value;
+
+
+document.getElementById('id값').innerHTML=str ;
+

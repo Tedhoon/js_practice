@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    
+    <title>폼연습</title>
+
+
+    <script>
+        function check(){
+
+            //myform.submit(); 
+
+            var str = "";
+
+            str = str + myform.txt_1.value+ "<br>";
+            str = str + myform.txt_2.value;
+            str = str + myform.txt_year.value +"년" +myform.sel_month.value + "월" +myform.txt_day.value+"일";
+            
+            str = str + myform.gender.value;
+            str = str + myform.txt_4.value;
+
+            <!-- str = str + myform.selectex.value + "월"; -->
+
+            document.getElementById("msg").innerHTML =str;
+
+            //alert(str)은 br안먹음-> \n 써줘야함
+
+
+            
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <div id="divtitle">
+        개인신청자료
+    </div>
+    
+
+
+        <form method="GET" action="ex03.html" name="myform">
+
+            <!-- <label>성명
+            <input type="text" name="txt_1" placeholder="성명입력하세요">
+            </label>
+             -->
+
+            <label for="txt_1">성명</label>
+                <input type="text" id="txt_1" name="txt_1" placeholder="성명 입력하세요">
+                    
+            <label for="txt_2">E-mail</label>
+                <input type="text" id="txt_2" name="txt_2" placeholder="이메일 입력하세요">
+
+            <label for="txt_year">생년월일</label><br>
+
+                <input type="text" id="txt_year" name="txt_year" placeholder="년도">
+                <select name="sel_month">
+                        <option value="">월선택</option>
+                        <option value="01">1월</option>
+                        <option value="02">2월</option>
+                        <option value="03">3월</option>
+                        <option value="04">4월</option>
+                        <option value="05">5월</option>
+                        <option value="06">6월</option>
+                        <option value="07">7월</option>
+                        <option value="08">8월</option>
+                        <option value="09">9월</option>
+                        <option value="10">10월</option>
+                        <option value="11">11월</option>
+                        <option value="12">12월</option>
+                        <!-- name=value&~~이런식으로 넘어간다 -->
+
+                </select>
+
+
+
+                <!-- <select name = "selectex">
+
+                        <option value = "1">1월</option>
+                        <option value = "2">2월</option>
+                    
+                
+                    </select> -->
+                <input type = "text" id="txt_day" name="txt_day" placeholder="일"> 
+                
+
+                
+                성별<br>
+                
+            <div class="box1">
+                <label for="gender">
+                        <input type = "radio" name="gender" id="gender" value="남자">남
+                        <input type = "radio" name="gender" id="gender" value="여자">여
+                </label>
+            </div>
+
+
+                        <!-- 항상 밸류는 넘어가는 값(겟이나 포스트로) 
+                        중복 선택이 안되게 하려면 radio+name같게 -->
+
+                        <!-- 글자를 선택해도 체크박스에 체크가 되게 하려면 -> 각 인풋타입 라디오를 라벨로 설정 -->
+
+                        <label>관심분야</label>
+
+
+            <div class="box1">            
+                        
+                        <input type ="checkbox" name="C" id="c" value="C">
+                        <label for ="c">C</label>
+                        
+                        <input type ="checkbox" name="python" id="python" value="PYTHON">
+                        <label for ="python">PYTHON</label>
+                        
+
+            </div>
+
+
+            <label for ="txt_4">기타</label>
+            <textarea name="txt_4" id="txt_4"></textarea>
+
+            
+                        <input type ="button" value="확인" onclick="check()">
+
+
+                        <input type ="reset" value="취소">
+            
+
+
+        </form>
+         
+        <div id="msg"></div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jquery연습</title>
+		<style>
+			.box1{
+				border-radius: 10px;
+				border: 2px solid #73AD21;
+				background-color : #73AD21;
+				padding: 10px; 
+				margin : 10px;
+				width: 400px;
+				height: 20px; 
+				color : white;
+				text-align : center;
+			}
+			.box2 {
+				width : 400px ;
+				height : 120px;
+				margin : 10px;
+				padding-top : 20px;
+				text-align : center;
+				border : 2px solid grey;
+				box-sizing : border-box;
+				float : left ;
+			}
+			img {
+				width : 200px ;
+				height : 50px;
+			}
+			form {
+				padding: 10px; 
+				margin : 10px;
+				width: 400px;
+				height: 20px; 
+				text-align : center;
+				clear : both ;				
+			}
+			a{
+
+				text-decoration: none;
+			}
+		</style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#sel1').change(function(){
+					//form안의 value를 가져온다 -> naver,daum,google -> 이걸이용해서 img src와 href연결해줄거임
+                    var sel1 = $(this).val(); 
+					
+                    $('#img1').attr('src','./img/'+ sel1 + '.png');  //img1안의 속성인 src를 .attr메서드를 이용해서 가져오고 변수와 함꼐 바꿔줌> 
+					
+					//집어 넣을 url만들어주기
+					var url = "";
+
+                    if (sel1 == "daum")
+                        url = 'http://www.' + sel1 + '.net'
+
+                    else
+                        url = 'http://www.' + sel1 + '.com'
+
+
+					//url = "http://www." + sel1 + '.com';
+                    $('#a1').attr('href',url);
+					$('#p1').html('<a href = "' + url + '">' + url +'</a>' );
+					//p태그 안에 문장+<a>태그도 넣어주고 싶으면 .html을 쓴다!
+						
+					
+					
+
+
+
+
+					//switch (url) {
+                     //   case 'naver':
+                     //       $('#a1').attr('href', 'http://www.naver.com');
+                      //      $('#p1').text('http://www.naver.com');
+
+                     //       $('#p1').html('<a href="http://www.naver.com">http://www.naver.com');
+
+                      //      url = "http://naver.com";
+                     //       break;
+                      //  case 'google':
+                     //       $('#a1').attr('href', 'http://www.naver.com');
+                     //       $('#p1').text('http://www.naver.com');
+
+
+                    //        break;
+                    //    case 'daum':
+                   //         $('#a1').attr('href', 'http://www.naver.com');
+                    //        $('#p1').text('http://www.naver.com');
+
+
+                    //        break;
+                   //}
+                    //console.log(url);
+
+
+                });     
+            });
+
+        </script>
+	</head>
+	<body>
+		<div class="box1">jQuery</div>
+		<div class="box2" id="d1">
+			<a href="#" id="a1"><img id="img1"></a>
+			<p id="p1"></p>
+		</div> 
+		<form name="form1">
+			<select name="sel1" id="sel1">
+				<option value="">검색엔진</option>
+				<option value="google">구글</option>
+				<option value="naver">네이버</option>
+				<option value="daum">다음</option>
+			</select>
+		</form>
+	</body>
+</html>
+

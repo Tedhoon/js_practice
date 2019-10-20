@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>가위바위보</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<style>
+	img {
+		width : 80px;
+		height :80px;
+	}
+	.box1 {
+		border-radius: 10px;
+		border: 2px solid #73AD21;
+		background-color : #73AD21;
+		padding: 10px; 
+		margin : 10px;
+		width: 400px;
+		height: 20px; 
+		color : white;
+		text-align : center;
+	}
+	.box2 {		 
+		padding: 10px; 
+		margin : 10px;
+		width: 400px; 
+		text-align : center;
+	} 
+	#msgimg {
+		width : 400px; 
+		margin : 10px;
+		padding: 10px;  
+		border: 1px solid #73AD21;
+		text-align : center;
+	}
+	#msg {
+		width : 400px;
+		height : 40px;
+		margin : 10px;
+		padding: 10px;  
+		border: 1px solid #73AD21;
+		font-size : 14px;
+		color : red;
+		text-align : center;
+	}
+</style>
+
+<script>
+	$(document).ready(function(){
+		var total=0;
+		var win=0;
+		$('p>img').click(function(){
+			
+
+			total++;
+
+			var src = $(this).attr('src');
+			//var user = parseInt((this).attr('id').charAt(1));
+			//substr로 구해도됩니다.
+			var user = parseInt($(this).attr('id').substring($(this).attr('id').length-1));
+
+			var com = Math.floor(Math.random()*3 +1);
+
+			$('#img1').attr('src' ,src);
+
+			var comsrc = './img/';
+
+//			if (com==1){
+//				comsrc = comsrc + 'scissorscom'
+//			}
+//			if (com==2)  
+// 			switch안써주고 이런식으로 써도 될 듯 !!!
+
+			switch(com){
+				case 1: 
+					comsrc = comsrc +'scissorscom';
+					break;
+				case 2:
+					comsrc = comsrc +'rockcom';
+					break;
+				case 3:
+					comsrc = comsrc +'papercom';
+					break;
+			}
+			comsrc = comsrc + '.png';
+			$('#img1').attr('src', src);
+			$('#img2').attr('src', comsrc);
+			console.log(user)
+
+
+			//결과
+			var str = "";
+			if( (user == 1 && com ==3) || (user == 2 && com ==1) || (user == 3 && com ==2)){
+				str = str+ "이김"
+				win++;
+			}
+
+			else if (user == com){
+
+				str =str + "비김"
+
+			}
+
+			else { 
+				str =str + "패배"
+			}
+
+			str = str + '<br> 전체 횟수 :' + total;
+			str = str + ', 이긴 횟수 :' + win;
+			str = str + '('+ (win/total *100).toFixed(2)+ '%)';
+
+			$('#msg').html(str);
+										//나온 결과치의 소숫점 2째자리 까지
+			
+
+			//if문에는 }뒤에 ;(세미콜론) 찍어주면 안됩니다.
+			
+		});
+
+		$('#bt1').click(function(){
+			$('#img1').attr('src', './img/q.png');
+			$('#img2').attr('src', './img/q.png');
+			$("#msg").html('');
+
+			total = 0;
+			win = 0;
+
+
+		});
+		
+
+	});
+
+	
+</script>
+ 
+</head>
+<body>
+<form name="myform">
+	<div class="box1">
+		가위바위보게임
+	</div>
+	<div class="box2">
+		<p>
+		<img src="./img/scissors.png" id="i1">
+		<img src="./img/rock.png" id="i2">
+		<img src="./img/paper.png" id="i3">
+		</p>
+		
+		<p>
+		<input type="button" value="다시하기" id="bt1">
+		</p>
+	</div>
+	<div id="msgimg">
+		 <img src="./img/q.png" id="img1"> 
+		 <img src="./img/vs.png">
+		 <img src="./img/q.png" id="img2">
+	</div>
+	<div id="msg">
+		
+	</div>
+</form>
+</body>
+</html>

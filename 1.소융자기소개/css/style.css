@@ -1,0 +1,167 @@
+/* -글요소- */
+@import url('https://fonts.googleapis.com/css?family=Barriecito&display=swap');
+
+
+h1{
+    font-family: 'Barriecito', cursive;
+    margin-top: 60px;
+    color : white;
+}
+
+h3{
+    margin : 20px;
+    font-size: 25px;
+    color: white;
+    padding : 20px;
+    background-color:rgb(12, 54, 54);
+}
+
+h4{
+    text-align: center;
+    color : white;
+}
+
+
+p{
+    color : green;
+}
+
+/* -글요소- */
+
+
+
+
+
+
+
+/* -header- */
+
+header{
+    height: 380px;
+    background-color: rgb(12, 54, 54);    
+}
+
+
+header>div{
+    float: left;
+    padding: 35px;
+}
+
+
+header > img{
+    /* padding : 35px; */
+}
+/* img태그는 인라인요소 */
+/* 끄집어 올리기 -> 플로팅 */
+
+
+
+
+/* -header- */
+
+
+
+
+
+
+
+
+/* -body&section- */
+
+body{
+    margin : 0;
+    
+}
+
+
+section{
+    margin:20px;
+    padding : 0px;
+    border : solid rgb(60, 160, 160) 2px;
+    width: 45%;
+    height: 300px;
+    float:left;
+
+}
+
+
+/* -body&section- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -nav & a- */
+
+
+a{
+    text-decoration: none;  
+}
+
+
+nav{
+    height: 60px;
+    background-color : rgb(60, 160, 160);
+}
+
+
+nav > a {
+    padding-top :15px;
+    color:white;
+    display:inline-block;
+    width : 120px;
+    height: 60px;
+    text-align: center; 
+}
+
+/* nav랑 nav>a랑 같은 height을 줘야하는데 a에 패딩을 빼줘서 계산 */
+    /* ???안해도 되네 또... */
+ /* a:link, a:visited{
+
+
+}  */
+
+
+a:hover{
+    /* margin-top :8px; */
+
+    background-color:white;
+    color : rgb(60, 160, 160);
+}
+
+
+
+/* -nav & a- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -class- */
+
+
+.contents{
+
+    margin : 40px;
+
+}
+
+
+/* -class- */

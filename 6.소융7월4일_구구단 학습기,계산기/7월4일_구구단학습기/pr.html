@@ -1,0 +1,44 @@
+
+
+
+
+
+<script>
+
+
+    function danshow(){
+
+        if(myform.value.dan=="";){
+            
+            alert("단을 선택하세요")
+        }
+
+
+        var str = "";
+
+
+        var dan = parseInt(myform.value.dan);
+
+        
+
+        for(i=1; i<=9; i++;){
+
+            str = str + dan + "X" + i + "=" + dan*i + <br>;
+
+        }
+
+        document.getElementById("msg").innerHTML=str;
+
+    }
+    
+    function rshow(){
+
+        var str = ""
+        var dan = Math.floor(Math.random)
+
+    }
+
+
+
+
+</script>

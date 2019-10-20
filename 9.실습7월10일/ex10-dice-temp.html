@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>주사위게임</title>
+
+<style>
+	.box1 {
+		border-radius: 10px;
+		border: 2px solid #73AD21;
+		background-color : #73AD21;
+		padding: 10px; 
+		margin : 10px;
+		width: 400px;
+		height: 20px; 
+		color : white;
+		text-align : center;
+	}
+	.box2 {		 
+		padding: 10px; 
+		margin : 10px;
+		width: 400px; 
+		text-align : center;
+	} 
+	#msg {
+		width : 400px;
+		height : 40px;
+		margin : 10px;
+		padding: 10px;  
+		border: 1px solid #73AD21;
+		font-size : 14px;
+		color : red;
+		text-align : center;
+	}
+	#msgimg {
+		width : 400px; 
+		margin : 10px;
+		padding: 10px;  
+		border: 1px solid #73AD21;
+		text-align : center;
+	}
+	.b1 {
+		width : 100px;
+		height :100px;
+		font-size : 30px;
+		text-align : center;
+	}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+		var total = 0;
+		var win = 0;
+
+		$('p>img').click(function(){
+
+			total++;
+			
+
+			var user = 0;
+			var src = $(this).attr('src');
+			
+			src = src.replace('./img/','');
+			//.img/를 ''공백처리해주는 함수
+
+			
+			
+			user= parseInt(src.charAt(0));
+			//우리가 선택한 주사위 수만 출력(첫 자리수만 출력)
+			var com =Math.floor(Math.random() *6)+1;
+			//1~6 까지 컴터에서 랜덤수 출력
+
+			
+			//console.log(com)// <-확인용
+
+			//이미지 넣기
+			$('#img1').attr('src' ,$(this).attr('src'));
+			//내가 짠 코드는
+//			$('#img1').attr('src',"./img/" + user + ".png");
+			$('#img2').attr('src', "./img/c" + com + ".png");
+
+			//결과확인
+			var str =  "";
+
+			if (user == com) {
+
+				str = "맞음";
+				win++;
+				
+			}
+			else {
+
+				str = "틀림";
+			}
+
+			str = str +  '<br>전체횟수 :' + total;
+			str = str +  ', 맞은횟수 :' + win;
+ 			$('#msg').html(str);
+
+
+
+
+		});
+
+		//다시하기 버튼
+
+		$('input[type = button]').click(function(){
+			$('#img1').attr('src' ,"./img/q.png");
+			$('#img2').attr('src', "./img/q.png");
+			$('#msg').html("");	
+
+			total = 0 ;
+			win = 0;
+			//전역변수 초기화
+
+
+
+		});
+		
+		//.png앞의 숫자만 추출하고 싶다
+		//replace함수 -> 어떤 부분지워서 남은 부분 추출
+		//charAt <- 남은 문장 중 첫번째 글자 가져오기
+		//더 범용적인 방법 -> split이용
+
+	});
+</script>
+
+
+</head>
+<body>
+<form name="myform">
+	<div class="box1">
+		주사위게임
+	</div>
+	<div class="box2">
+		<p>
+		<img src="./img/1.png">
+		<img src="./img/2.png">
+		<img src="./img/3.png">
+		</p>
+		<p>
+		<img src="./img/4.png">
+		<img src="./img/5.png">
+		<img src="./img/6.png">
+		</p>
+		<p>
+		<input type="button" value="다시하기">
+		</p>
+	</div>
+	<div id="msgimg">
+		 <img src="./img/q.png" id="img1"> 
+		 <img src="./img/vs.png">
+		 <img src="./img/q.png" id="img2">
+	</div>
+	<div id="msg">
+		
+	</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+	<meta charset="utf-8">
+	<head>
+		<title>jquey</title>
+		
+		<style>
+		.box1 {
+			border-radius: 5px;
+			border: 2px solid #73AD21;
+			padding: 5px; 
+			margin:5px;
+			width: 50px;
+			height: 50px; 
+			font-size:30px;
+			text-align:center;
+			float : left;
+		}
+		.imgBox {
+			width: 40px;
+		}
+		.box2 {
+			clear : both;
+		} 
+		.box3 {
+			width: 200px;
+			height: 50px; 
+			margin:5px;
+			text-align:center;
+		} 
+		#msg {
+			border-radius: 5px;
+			border: 2px solid #73AD21;
+			padding: 5px; 
+			margin:5px;
+			width: 200px;
+			height: 50px; 
+			font-size:30px;
+			text-align:center;
+			float : left;
+		}
+		</style>
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			//배열을 이용해서 만들어 볼 것임
+
+			$(document).ready(function(){
+				var num = [0,0,0,0,0,0,0,0,1];
+
+				var flag = false;
+				//flag가 true가 되면 끝나게(못 누르게)
+
+				var cnt = 0;
+
+
+				function shuffle(){
+					//인덱스의 위치를 바꿔주는데 for문으로 길이만큼(9) 바꿔줌
+					for (var i=0; i<num.length; i++){
+						var idx1 = Math.floor(Math.random()*8)+1;
+						var idx2 = Math.floor(Math.random()*8)+1;
+						//아 이러면 안되네 그냥 *9해야 0~8까지 나옴
+						// Math.floor(Math.random()*9)
+						
+
+
+						var temp = 0;
+
+						if (idx1 != idx2){
+							temp = num[idx1];
+							num[idx1] = num[idx2];
+							num[idx2] = temp;
+							
+						}
+						//console.log(num);(섞이는 과정 9번을 모두 console에 출력)
+
+	
+					}
+					console.log(num); //(섞인 결과만 보임)
+				}
+
+				function addImg(){
+
+					for (i=1; i<=9; i++){
+
+						var htmlstr = '<img src ="./img/q.png" class = "imgBox" id = "img' + i +'">';
+						//console.log(htmlstr);
+						$('#div' + i).html(htmlstr);
+
+					}
+					flag = false;
+					cnt=0;
+					$('#msg').text('');
+				}
+	
+
+				$('#btn1').click(function(){
+					shuffle();
+					addImg();
+
+				});
+				$('.box1').on("click", ".imgBox", function(){
+					
+					if (flag) return;
+					
+					var id = parseInt($(this).attr('id').replace('img' , ''));
+					//alert(id); (확인용)
+
+					if (num[id-1] == 0){
+						$(this).attr('src', './img/hart.png')
+						cnt++;
+						if (cnt == 8){
+							$('.imgBox').attr('src' , './img/hart.png')
+							flag= true;
+							$('#msg').text("성공!");
+
+
+						}
+					} 
+					else{
+						
+						$(this).attr('src', './img/boom.png')
+						flag = true;
+						$('#msg').text("실패!");
+						
+						
+
+
+					}
+
+
+				});
+				
+				
+			});
+			
+		
+		</script>
+	</head>
+	
+	<body>	
+		<div id="box">
+		<div class="box1" id="div1"></div>
+		<div class="box1" id="div2"></div>
+		<div class="box1" id="div3"></div>
+		<div class="box2"></div>
+		<div class="box1" id="div4"></div>
+		<div class="box1" id="div5"></div>
+		<div class="box1" id="div6"></div>
+		<div class="box2"></div>
+		<div class="box1" id="div7"></div>
+		<div class="box1" id="div8"></div>
+		<div class="box1" id="div9"></div>
+		<div class="box2"></div>
+		</div> 
+		<div id="msg"></div>
+		<div class="box2"></div>
+		<div class="box3">
+		<input type="button" value="폭탄섞기" id="btn1">
+		</div>
+	</body>
+</html>

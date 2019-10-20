@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>카드만들기</title>
+
+<style>
+	.box1 {
+		border-radius: 10px;
+		border: 2px solid #73AD21;
+		background-color : #73AD21;
+		padding: 10px; 
+		margin : 10px;
+		width: 400px;
+		height: 20px; 
+		color : white;
+		text-align : center;
+	}
+	.box2 {		 
+		padding: 10px; 
+		margin : 10px;
+		width: 400px; 
+		text-align : center;
+	} 
+	#msg {
+		margin : 10px;
+		padding: 10px;
+		font-size : 14px;
+		color : red;
+		text-align : center;
+	}
+	#msgimg {
+		width : 400px; 
+		margin : 10px;
+		padding: 10px;  
+		border: 1px solid #73AD21;
+		text-align : center;
+	}
+	.b1 {
+		width : 100px;
+		height :100px;
+		font-size : 30px;
+		text-align : center;
+	}
+
+	
+	.card1 {
+		width : 50px;
+		height :60px;
+		border: 2px solid #73AD21;
+		border-radius: 5px;
+		margin: 5px;
+		padding-top:6px;
+		font-size: 25px;
+		float: left;
+	}
+	
+	.card2 {
+		width : 50px;
+		height :60px;
+		background-color: yellow;
+		border: 2px solid #73AD21;
+		border-radius: 5px;
+		margin: 5px;
+		padding-top:6px;
+		font-size: 25px;
+		float: left;
+	}
+
+	
+	.cardClear {
+		clear : both;
+	}
+</style>
+</head>
+<body>
+<form name="myform">
+	<div class="box1">
+		카드만들기 
+	</div>
+	<div class="box2">
+		시작 <input type="text" name="txt1" size="6">
+		종료 <input type="text" name="txt2" size="6">
+		<input type="button" value="카드보기">
+		<input type="button" value="지우기">
+	</div> 	 
+	<div id="msg">
+	</div>
+</form>
+</body>
+</html>

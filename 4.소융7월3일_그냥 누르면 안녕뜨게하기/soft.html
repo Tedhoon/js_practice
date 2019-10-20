@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>class7</title>
+    <style>
+
+        a{
+            text-decoration: none;
+            display:inline-block;
+            width: 150px;
+            height: 40px;
+            background-color: blueviolet;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+
+        }
+
+        a:hover{
+            background-color: pink;
+            color:white;
+        }
+
+        #msg1{
+
+            background-color:aqua;
+
+        }
+        #msg2{
+
+            background-color:green;
+
+        }
+        #msg3{
+
+            background-color:red;
+
+        }
+        
+
+
+    </style>
+    
+    <script>
+        function hello(){
+
+            document.getElementById('msg').innerHTML='안녕하세요';
+            
+            console.log("text")
+            document.getElementsByTagName('div')[1].innerHTML='<h1>안녕하세요</h1>';
+
+            document.getElementsByClassName('c3')[0].innerHTML="하이";
+    
+        }
+
+        
+    </script>
+
+
+</head>
+<body>
+
+
+    <!-- <form name="myform">
+        <input type="text" name="txt1">
+        <input type="button" value="확인" onclick="();">
+    </form> -->
+    <a href = "soft.html" onclick="hello();">눌러주세요</a>
+    <div id="msg"></div>
+        
+    <div id = "msg1" class="c1">1</div>
+    
+    <div id = "msg2" class="c2">9</div>
+    
+    <div id = "msg3" class="c3">1</div>
+    
+</body>
+</html>

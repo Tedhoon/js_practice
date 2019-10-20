@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>기말고사</title>
+<style>
+	.box1 {
+		border-radius: 10px;
+		border: 2px solid #73AD21;
+		background-color : #73AD21;
+		padding: 10px; 
+		margin : 10px;
+		width: 400px;
+		height: 20px; 
+		color : white;
+		text-align : center;
+	}
+	.box2 {		 
+		padding: 10px; 
+		margin : 10px;
+		width: 400px; 
+		height:200px;
+		text-align : center;
+		
+	} 
+	.box21 {
+		padding: 15px; 
+		margin : 10px;
+		width: 150px;
+		height:150px;
+		float: left ;
+	}
+	.box3 {
+		width : 400px; 
+		margin : 10px;
+		padding: 10px;  
+		border: 1px solid #73AD21;
+		text-align : center;
+	}
+	
+	#msg {
+		width : 400px;
+		height : 40px;
+		margin : 10px;
+		padding: 10px;  
+		border: 1px solid #73AD21;
+		font-size : 14px;
+		color : red;
+		text-align : center;
+	}
+	
+	img {
+		width : 80%;
+	}
+	 
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+		var word = ['apple', 'banana', 'strawberry', 'watermelon']
+		var kword = ['사과', '바나나', '딸기', '수박']
+		
+	$(document).ready(function(){
+		
+		$('#btn1').click(function(){
+		
+			var rnum = Math.floor(Math.random()*4);  //0~3
+			var hi ="<img src = ./img/" + word[rnum] + ".png>"
+			//$('.box2').html('<div class="box21">'+ word[rnum]+'</br>'+kword[rnum]+ hi +'</div>');
+			$('.box2').html('<div class="box21">'+ word[rnum]+'</br>'+kword[rnum]+'</div>'
+							+ '<div class="box21">'+hi+'</div>');
+
+			$('#msg').text("");
+			$('#txt1').val("");
+		
+		
+
+		});
+		
+		$('#btn2').click(function(){
+			var rnum = Math.floor(Math.random()*4);
+			$('.box2').html(kword[rnum]);
+			$('#msg').text("");
+			$('#txt1').val("");
+
+
+
+			$('#btn3').click(function(){
+			
+				if($('#txt1').val() == word[rnum]){
+					$('#msg').text("정답!!");
+					var hi ="<img src = ./img/" + word[rnum] + ".png>"
+					$('.box2').html('<div class="box21">'+ word[rnum]+'</br>'+kword[rnum]+'</div>'
+							+ '<div class="box21">'+hi+'</div>');
+					//$('.box2').html(word[rnum]+kword[rnum]+ hi);
+				}
+
+				else{
+					$('#msg').text("오답!!")
+				}
+			
+			});
+
+		});
+
+
+
+
+
+
+
+	});
+	
+
+	
+	 
+</script>
+</head>
+<body>
+<form name="myform">
+	<div class="box1">
+		단어공부
+	</div>
+	<div class="box2">
+		 
+	</div>
+	<div class="box3">
+		  <form name="myform" id="myfom">
+		  <input type="button" value="단어공부" id="btn1">
+		  <input type="button" value="랜덤문제" id="btn2">
+		  <input type="text" id="txt1">
+		  <input type="button" value="정답확인" id="btn3">
+		  </form>
+	</div>
+	<div id="msg">		
+	</div>
+</form>
+</body>
+</html>
